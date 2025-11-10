@@ -7,15 +7,15 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://ma-be-production.up.railway.app',
         changeOrigin: true,
       },
       '/signup': {
-        target: 'http://localhost:5000',
+        target: 'https://ma-be-production.up.railway.app',
         changeOrigin: true,
       },
       '/login': {
-        target: 'http://localhost:5000',
+        target: 'https://ma-be-production.up.railway.app',
         changeOrigin: true,
       }
     }
