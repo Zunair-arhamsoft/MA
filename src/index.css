@@ -73,7 +73,7 @@
   .header {
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       margin-bottom: 20px;
   }
@@ -83,6 +83,7 @@
       font-family: "Roboto Flex", sans-serif;
       color: #c32056;
       margin: 0;
+      text-align: center;
   }
   
   .header-actions {
@@ -319,9 +320,9 @@
   }
   
   .advice-heading {
-      font-size: 1.7rem;
+      font-size: 2.2rem;
       color: rgba(195, 32, 86, 0.8);
-      font-weight: 400;
+      font-weight: 700;
       margin-top: 1.5rem;
       margin-bottom: 2rem;
       border-bottom: 2px solid pink;
@@ -429,7 +430,8 @@
       }
   
       .advice-heading {
-          font-size: 1.3rem;
+          font-size: 1.8rem;
+          font-weight: 700;
       }
   
       .advice-card {
