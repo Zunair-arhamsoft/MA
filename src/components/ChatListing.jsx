@@ -13,7 +13,7 @@ function ChatListing({ onNewChat, onOpenChat }) {
   const [currentPage, setCurrentPage] = useState(1)
     const [showMapModal, setShowMapModal] = useState(false);
 
-  const itemsPerPage = 3
+  const itemsPerPage = 10
 
   useEffect(() => {
     loadChats()
