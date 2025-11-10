@@ -1,7 +1,7 @@
 // Auth API functions
 
 export async function signup(email, password) {
-  const response = await fetch('/signup', {
+  const response = await fetch('https://ma-be-production.up.railway.app/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export async function signup(email, password) {
 }
 
 export async function login(email, password) {
-  const response = await fetch('/login', {
+  const response = await fetch('https://ma-be-production.up.railway.app/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

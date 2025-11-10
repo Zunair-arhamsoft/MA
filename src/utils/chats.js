@@ -1,7 +1,7 @@
 // Chat API functions
 
 export async function getAllChats(email) {
-  const response = await fetch(`/api/chats?email=${encodeURIComponent(email)}`, {
+  const response = await fetch(`https://ma-be-production.up.railway.app/api/chats?email=${encodeURIComponent(email)}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ export async function getAllChats(email) {
 
   const contentType = response.headers.get('content-type');
   let data;
-  
+
   if (contentType && contentType.includes('application/json')) {
     data = await response.json();
   } else {
@@ -26,7 +26,7 @@ export async function getAllChats(email) {
 }
 
 export async function getChatById(id, email) {
-  const response = await fetch(`/api/chats/${id}?email=${encodeURIComponent(email)}`, {
+  const response = await fetch(`https://ma-be-production.up.railway.app/api/chats/${id}?email=${encodeURIComponent(email)}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export async function getChatById(id, email) {
 
   const contentType = response.headers.get('content-type');
   let data;
-  
+
   if (contentType && contentType.includes('application/json')) {
     data = await response.json();
   } else {
@@ -51,7 +51,7 @@ export async function getChatById(id, email) {
 }
 
 export async function createChat(email, userInput, adviceOutput, title = null) {
-  const response = await fetch('/api/chats', {
+  const response = await fetch('https://ma-be-production.up.railway.app/api/chats', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export async function createChat(email, userInput, adviceOutput, title = null) {
 
   const contentType = response.headers.get('content-type');
   let data;
-  
+
   if (contentType && contentType.includes('application/json')) {
     data = await response.json();
   } else {
@@ -77,7 +77,7 @@ export async function createChat(email, userInput, adviceOutput, title = null) {
 }
 
 export async function updateChat(id, email, userInput, adviceOutput, title = null) {
-  const response = await fetch(`/api/chats/${id}`, {
+  const response = await fetch(`https://ma-be-production.up.railway.app/api/chats/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ export async function updateChat(id, email, userInput, adviceOutput, title = nul
 
   const contentType = response.headers.get('content-type');
   let data;
-  
+
   if (contentType && contentType.includes('application/json')) {
     data = await response.json();
   } else {
@@ -103,7 +103,7 @@ export async function updateChat(id, email, userInput, adviceOutput, title = nul
 }
 
 export async function deleteChat(id, email) {
-  const response = await fetch(`/api/chats/${id}?email=${encodeURIComponent(email)}`, {
+  const response = await fetch(`https://ma-be-production.up.railway.app/api/chats/${id}?email=${encodeURIComponent(email)}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ export async function deleteChat(id, email) {
 
   const contentType = response.headers.get('content-type');
   let data;
-  
+
   if (contentType && contentType.includes('application/json')) {
     data = await response.json();
   } else {
