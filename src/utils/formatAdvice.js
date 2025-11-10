@@ -14,13 +14,29 @@ export function formatAdvice(text) {
 
     // Check for section heading (lines with ** at start and end, or ending with :)
     if ((trimmedLine.startsWith('**') && trimmedLine.endsWith(':**')) || 
-        (trimmedLine.startsWith('**') && trimmedLine.endsWith('**:') && trimmedLine.includes(':'))) {
+        (trimmedLine.startsWith('**') && trimmedLine.endsWith('**:')) ||
+        (trimmedLine.startsWith('**Section:') && trimmedLine.endsWith('**')) ||
+        (trimmedLine.startsWith('**Section:') && trimmedLine.endsWith(':**')) ||
+        (trimmedLine.startsWith('**Section:') && trimmedLine.endsWith('**:')) ||
+        (trimmedLine.startsWith('*') && trimmedLine.endsWith('**') && trimmedLine.includes(':')) ||
+        (trimmedLine.startsWith('##') && trimmedLine.includes(':')) ||
+        (trimmedLine.startsWith('###') && trimmedLine.includes(':')) ||
+        (trimmedLine.startsWith('#') && trimmedLine.includes('Section:')) ||
+        (trimmedLine.startsWith('Section:') && !trimmedLine.startsWith('**'))) {
       // Close previous section if exists
       if (insideSection) {
         currentSection += '</div>';
         formattedHTML += currentSection;
       }
-      const heading = trimmedLine.replace(/\*\*/g, '').replace(/:$/, '');
+      // Extract heading text - handle different formats
+      let heading = trimmedLine
+        .replace(/^#+\s*/, '') // Remove markdown # symbols
+        .replace(/\*\*/g, '') // Remove bold markers
+        .replace(/^\*\s*/, '') // Remove single asterisk at start
+        .replace(/^Section:\s*/i, '') // Remove Section: prefix (case insensitive)
+        .replace(/^Section Heading:\s*/i, '') // Remove Section Heading: prefix (case insensitive)
+        .replace(/:$/, ''); // Remove trailing colon
+      
       formattedHTML += `<h2 class="advice-heading"><strong>${heading}</strong>:</h2>`;
       currentSection = '<div class="advice-section">';
       insideSection = true;
