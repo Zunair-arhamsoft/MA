@@ -107,15 +107,17 @@ function ChatListing({ onNewChat, onOpenChat }) {
 
           <div className="chat-listing-header">
             <h1>My Chats</h1>
-            <button onClick={onNewChat} className="new-chat-btn">
-              New Chat
-            </button>
-            <button
-              onClick={() => setShowMapModal(true)}
-              className="new-chat-btn"
-            >
-              🏥 Find Gynecologists
-            </button>
+            <div className="header-buttons-group">
+              <button onClick={onNewChat} className="new-chat-btn">
+                New Chat
+              </button>
+              <button
+                onClick={() => setShowMapModal(true)}
+                className="new-chat-btn"
+              >
+                Find Gynecologists
+              </button>
+            </div>
           </div>
 
           {error && <div className="error-message">{error}</div>}
@@ -179,15 +181,14 @@ function ChatListing({ onNewChat, onOpenChat }) {
             </>
           )}
         </div>
+        <Footer />
       </div>
       <GynecologistMapModal
         show={showMapModal}
         onClose={() => setShowMapModal(false)}
       />
-      <Footer />
     </>
   );
 }
 
 export default ChatListing
-
