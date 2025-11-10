@@ -1,8 +1,8 @@
-const endpoint = '/api/generate';
+const endpoint = 'https://ma-be-production.up.railway.app/api/generate';
 
 export async function generateAdvice(userInput) {
   console.log('Sending request to:', endpoint);
-  
+
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
